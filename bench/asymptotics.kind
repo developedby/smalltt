@@ -1,0 +1,266 @@
+Id (a: Type): a -> a
+Id a = @x x
+
+Pair : Type -> Type -> Type
+Pair = @a @b (p: Type) (a -> b -> p) -> p
+
+Dup <t: Type> : t -> ((Pair) t t)
+Dup t = @a @p @pp (pp a a)
+
+Nat : Type
+Nat = (n: Type) (n -> n) -> n -> n
+
+Zero : Nat
+Zero = @n @s @z z
+
+Suc : Nat -> Nat
+Suc = @a @n @s @z (s (a n s z))
+
+Vec : Type -> Nat -> Type
+Vec = @a @n (v: Nat -> Type) ((n: Nat) a -> (v n) -> (v ((Suc) n))) -> (v Zero) -> (v n)
+
+Nil (a: Type) : ((Vec) a Zero)
+Nil a = @v @c @n n
+
+Cons (a: Type) (n: Nat) : a -> ((Vec) a n) -> ((Vec) a ((Suc) n))
+Cons a n = @x @xs @v @c @nil (c n x (xs v c nil))
+
+// --------------------------------------------------------------------------------
+
+IdTest (a: Type) : a -> a
+IdTest a = @x
+  ((Id _) ((Id _) ((Id _) ((Id _) ((Id _) ((Id _) ((Id _) ((Id _) ((Id _) ((Id _) ((Id _) ((Id _) ((Id _) ((Id _) ((Id _) ((Id _) ((Id _) ((Id _) ((Id _) ((Id _)
+  ((Id _) ((Id _) ((Id _) ((Id _) ((Id _) ((Id _) ((Id _) ((Id _) ((Id _) ((Id _) ((Id _) ((Id _) ((Id _) ((Id _) ((Id _) ((Id _) ((Id _) ((Id _) ((Id _) ((Id _)
+  x))))))))))))))))))))))))))))))))))))))))
+
+PairTest : _
+PairTest =
+  let x0 = ((Dup _) Type);
+  let x1 = ((Dup _) x0);
+  let x2 = ((Dup _) x1);
+  let x3 = ((Dup _) x2);
+  let x4 = ((Dup _) x3);
+  let x5 = ((Dup _) x4);
+  let x6 = ((Dup _) x5);
+  let x7 = ((Dup _) x6);
+  let x8 = ((Dup _) x7);
+  let x9 = ((Dup _) x8);
+  let x10 = ((Dup _) x9);
+  let x11 = ((Dup _) x10);
+  let x12 = ((Dup _) x11);
+  let x13 = ((Dup _) x12);
+  let x14 = ((Dup _) x13);
+  let x15 = ((Dup _) x14);
+  let x16 = ((Dup _) x15);
+  let x17 = ((Dup _) x16);
+  let x18 = ((Dup _) x17);
+  let x19 = ((Dup _) x18);
+  let x20 = ((Dup _) x19);
+  let x21 = ((Dup _) x20);
+  let x22 = ((Dup _) x21);
+  let x23 = ((Dup _) x22);
+  let x24 = ((Dup _) x23);
+  let x25 = ((Dup _) x24);
+  let x26 = ((Dup _) x25);
+  let x27 = ((Dup _) x26);
+  let x28 = ((Dup _) x27);
+  let x29 = ((Dup _) x28);
+  let x30 = ((Dup _) x29);
+  x30
+
+VecTest (a: Type) : _
+VecTest a =
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+  ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type ((Cons _ _) Type
+
+  (Nil _)
+
+  )))))) )))))) )))))) )))))) )))))) )))))) )))))) )))))) )))))) ))))))
+  )))))) )))))) )))))) )))))) )))))) )))))) )))))) )))))) )))))) ))))))
+  )))))) )))))) )))))) )))))) )))))) )))))) )))))) )))))) )))))) ))))))
+  )))))) )))))) )))))) )))))) )))))) )))))) )))))) )))))) )))))) ))))))
+  )))))) )))))) )))))) )))))) )))))) )))))) )))))) )))))) )))))) ))))))
+  )))))) )))))) )))))) )))))) )))))) )))))) )))))) )))))) )))))) ))))))
+  )))))) )))))) )))))) )))))) )))))) )))))) )))))) )))))) )))))) ))))))
+  )))))) )))))) )))))) )))))) )))))) )))))) )))))) )))))) )))))) ))))))
+  )))))) )))))) )))))) )))))) )))))) )))))) )))))) )))))) )))))) ))))))
+  )))))) )))))) )))))) )))))) )))))) )))))) )))))) )))))) )))))) ))))))
+  )))))) )))))) )))))) )))))) )))))) )))))) )))))) )))))) )))))) ))))))
+  )))))) )))))) )))))) )))))) )))))) )))))) )))))) )))))) )))))) ))))))
+  )))))) )))))) )))))) )))))) )))))) )))))) )))))) )))))) )))))) ))))))
+  )))))) )))))) )))))) )))))) )))))) )))))) )))))) )))))) )))))) ))))))
+  )))))) )))))) )))))) )))))) )))))) )))))) )))))) )))))) )))))) ))))))
+  )))))) )))))) )))))) )))))) )))))) )))))) )))))) )))))) )))))) ))))))
